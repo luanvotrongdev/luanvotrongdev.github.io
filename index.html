@@ -17,15 +17,21 @@
             'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '4804335499657434');
         fbq('track', 'PageView');
-        fbq('track', 'Info', {name:"Luan", info:"OcCho"});
     </script>
-    <!-- <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=4804335499657434&ev=PageView&noscript=1" /></noscript> -->
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=4804335499657434&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
+    <script>
+        function onTestButtonClicked()
+        {
+            fbq('track', 'Info', {name:"Luận", info:"OcCho"});
+        }
+    </script>
 </head>
 
 <body>
     <h1 id="fuck">Testing shits!!!</h1>
+    <button type="button" onclick="onTestButtonClicked()">Test</button>
 </body>
 
 </html>
