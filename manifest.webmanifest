@@ -1,0 +1,12 @@
+{
+  "name": "Camera Parallax Tutorial",
+  "short_name": "Camera Parallax Tutorial",
+  "id": "com.example.cameraparallaxtutorial",
+  "description": "",
+  "orientation": "landscape",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "categories": ["games", "entertainment"],
+  "icons": []
+}
