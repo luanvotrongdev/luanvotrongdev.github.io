@@ -1,0 +1,69 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1d1f23;
+  --muted: #5f6672;
+  --border: #e3e5e8;
+  --accent: #2456c7;
+  --code-bg: #f4f5f7;
+  --measure: 46rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161a;
+    --fg: #e6e8eb;
+    --muted: #9aa1ac;
+    --border: #2a2e35;
+    --accent: #7aa2ff;
+    --code-bg: #1d2026;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 17px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.container { max-width: var(--measure); margin: 0 auto; padding: 0 1rem; }
+a { color: var(--accent); text-underline-offset: 0.15em; }
+h1, h2, h3 { line-height: 1.25; }
+h2 { margin-top: 2.2rem; }
+img { max-width: 100%; height: auto; }
+
+code { background: var(--code-bg); padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.9em; }
+pre { background: var(--code-bg); padding: 1rem; border-radius: 6px; overflow-x: auto; }
+pre code { background: none; padding: 0; }
+
+.site-header { border-bottom: 1px solid var(--border); }
+.site-header nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1rem; flex-wrap: wrap; }
+.brand { font-weight: 700; color: var(--fg); text-decoration: none; }
+.links a { margin-left: 1.2rem; color: var(--muted); text-decoration: none; }
+.links a:first-child { margin-left: 0; }
+.links a:hover, .links a[aria-current="page"] { color: var(--fg); }
+
+main { padding-block: 2rem 3rem; }
+
+.post-list { list-style: none; padding: 0; }
+.post-list li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+.post-list time, .meta { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.9em; margin-right: 0.6rem; }
+.excerpt { color: var(--muted); font-size: 0.95em; margin-top: 0.2rem; }
+.back { margin-top: 3rem; }
+
+.site-footer { border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9em; padding-block: 1.5rem; }
+
+/* Resume: tighter rhythm, and clean output for Ctrl+P → Save as PDF */
+.resume h2 { border-bottom: 1px solid var(--border); padding-bottom: 0.25rem; }
+.resume h3 { margin-bottom: 0; }
+.resume h3 + p { margin-top: 0.1rem; color: var(--muted); }
+
+@media print {
+  :root { --bg: #fff; --fg: #000; --muted: #444; --border: #ccc; --accent: #000; }
+  body { font-size: 11pt; line-height: 1.45; }
+  .site-header, .site-footer, .back { display: none; }
+  main { padding: 0; }
+  a { text-decoration: none; }
+  h2, h3 { break-after: avoid; }
+  li { break-inside: avoid; }
+}
