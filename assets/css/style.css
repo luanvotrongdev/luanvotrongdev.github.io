@@ -57,6 +57,9 @@ main { padding-block: 2rem 3rem; }
 .resume h2 { border-bottom: 1px solid var(--border); padding-bottom: 0.25rem; }
 .resume h3 { margin-bottom: 0; }
 .resume h3 + p { margin-top: 0.1rem; color: var(--muted); }
+.resume-actions { margin: -0.5rem 0 1.25rem; }
+.button { display: inline-block; padding: 0.45rem 1rem; border: 1px solid var(--accent); border-radius: 6px; color: var(--accent); font-weight: 600; font-size: 0.95em; text-decoration: none; }
+.button:hover { background: var(--accent); color: var(--bg); }
 
 /* Photography: album cards */
 .album-grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 1.5rem; }
@@ -94,13 +97,22 @@ main { padding-block: 2rem 3rem; }
   .lb-prev, .lb-next { top: auto; bottom: 0.5rem; transform: none; }
 }
 
+@page { margin: 14mm 16mm; }
+
 @media print {
-  .lightbox { display: none; }
+  .lightbox, .resume-actions { display: none; }
   :root { --bg: #fff; --fg: #000; --muted: #444; --border: #ccc; --accent: #000; }
   body { font-size: 11pt; line-height: 1.45; }
   .site-header, .site-footer, .back { display: none; }
   main { padding: 0; }
   a { text-decoration: none; }
   h2, h3 { break-after: avoid; }
+  /* Tighter rhythm so the resume fits on two pages */
+  .resume { font-size: 10pt; line-height: 1.4; }
+  .resume h1 { font-size: 20pt; margin: 0 0 0.2rem; }
+  .resume h2 { font-size: 13pt; margin: 1rem 0 0.4rem; }
+  .resume h3 { font-size: 11pt; margin-top: 0.7rem; }
+  .resume p, .resume ul { margin: 0.25rem 0; }
+  .resume li ul { margin: 0; }
   li { break-inside: avoid; }
 }
