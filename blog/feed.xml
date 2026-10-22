@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://luanvotrongdev.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://luanvotrongdev.github.io/" rel="alternate" type="text/html" /><updated>2026-10-22T19:10:05+07:00</updated><id>https://luanvotrongdev.github.io/blog/feed.xml</id><title type="html">Luan Vo Trong</title><subtitle>Software engineer. Resume and blog.</subtitle><author><name>Luan Vo Trong</name></author><entry><title type="html">Hello, world</title><link href="https://luanvotrongdev.github.io/blog/2026/10/21/hello-world/" rel="alternate" type="text/html" title="Hello, world" /><published>2026-10-21T00:00:00+07:00</published><updated>2026-10-21T00:00:00+07:00</updated><id>https://luanvotrongdev.github.io/blog/2026/10/21/hello-world</id><content type="html" xml:base="https://luanvotrongdev.github.io/blog/2026/10/21/hello-world/"><![CDATA[<p>Hello, world! I guess!?</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://luanvotrongdev.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://luanvotrongdev.github.io/" rel="alternate" type="text/html" /><updated>2026-10-22T19:54:19+07:00</updated><id>https://luanvotrongdev.github.io/blog/feed.xml</id><title type="html">Luan Vo Trong</title><subtitle>Software engineer. Resume and blog.</subtitle><author><name>Luan Vo Trong</name></author><entry><title type="html">Space Shooter Classic Part 1</title><link href="https://luanvotrongdev.github.io/blog/2026/10/22/space-shooter-classic-pt1/" rel="alternate" type="text/html" title="Space Shooter Classic Part 1" /><published>2026-10-22T00:00:00+07:00</published><updated>2026-10-22T00:00:00+07:00</updated><id>https://luanvotrongdev.github.io/blog/2026/10/22/space-shooter-classic-pt1</id><content type="html" xml:base="https://luanvotrongdev.github.io/blog/2026/10/22/space-shooter-classic-pt1/"><![CDATA[<p>“Everything is a tradeoff.”</p>
+
+<h2 id="childhood">Childhood?</h2>
+
+<p>I first played Space Shooter when I was, I don’t know, 7 years old maybe? Where I lived, people called it “Bắn ruồi”, which means “Fly Shooter”.</p>
+
+<p>I played it with my uncle. I think he was the one who introduced me to video games. He took me to the little game shop near my grandma’s house: a tiny shop full of kids and teenagers in shorts and tank tops, squatting on plastic chairs while having the best adventures of their lives!!</p>
+
+<p>Well, anyway, I hated that game. I don’t know why. It always made me feel pressured when the “flies” kept getting closer and the SFX kept getting louder and more annoying.</p>
+
+<h2 id="now">Now</h2>
+
+<p>While thinking about what my first AI-assisted game should be, I thought maybe “Bắn ruồi”.</p>
+
+<p>Because I hated it, I feel like I know why, and how to fix it.</p>
+
+<ol>
+  <li>
+    <p>All the fly formations feel too monotonous, like a metronome.</p>
+
+    <p>Solution: I will spawn the flies randomly, in random formations.</p>
+  </li>
+  <li>
+    <p>There were no power-ups or upgrades. It feels too skill-based, with no strategic side to it.</p>
+
+    <p>Solution: I like the idea that “everything is a tradeoff”. So when you pick up a power-up, you get more guns, but at the same time, moving gets clunkier and your hitbox gets bigger.</p>
+  </li>
+</ol>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>This is my first time using Claude.</p>
+
+<p>I started by establishing the coding conventions I wanted to test.</p>
+
+<p>Roughly:</p>
+
+<ul>
+  <li>
+    <p>DI: of course. It helps me with component injection and initialization. I used to pass object references around or use Unity’s SerializeField. That’s convenient at first, but it gets messier and harder to manage, especially when you have to take care of initialization order.</p>
+  </li>
+  <li>
+    <p>Composition over inheritance: my coding style is usually more verbose, more literal, which I think is easier to debug and clearer to read. But as the logic expands, methods and components are more likely to get bloated and become god classes. That’s why I want to try composition, which breaks an object’s behaviour into smaller chunks that I hope are more manageable.</p>
+  </li>
+  <li>
+    <p>Message system: breaking components into smaller chunks means a whole lot of references between them, which gets messy and defeats the purpose. Hence a message system.</p>
+  </li>
+</ul>
+
+<h2 id="well-fuck">Well, Fuck!</h2>
+
+<p>“Everything is a tradeoff” sounded perfect at first. But after playtesting, it felt very clunky and ugly, so I removed it (FOR NOW).</p>
+
+<p>Then there was a small bug.</p>
+
+<p>Bloody hell! This type of bug would be a piece of cake if I had written the code myself, or read the code after each AI coding iteration.</p>
+
+<p>Now I have around 30 components with about 20 lines of code each, and I don’t know who’s calling whom. (Skill issue…)</p>
+
+<p>I fixed it, but I’m still not satisfied.</p>
+
+<p>There will be next part.</p>
+
+<p>Lessons learned:</p>
+
+<ul>
+  <li>
+    <p>AI-assisted, not AI coding.</p>
+  </li>
+  <li>
+    <p>Read the generated code.</p>
+  </li>
+  <li>
+    <p>And most important: everything is a tradeoff.</p>
+  </li>
+</ul>]]></content><author><name>Luan Vo Trong</name></author><summary type="html"><![CDATA[Using AI to make this retro game.]]></summary></entry><entry><title type="html">Hello, world</title><link href="https://luanvotrongdev.github.io/blog/2026/10/21/hello-world/" rel="alternate" type="text/html" title="Hello, world" /><published>2026-10-21T00:00:00+07:00</published><updated>2026-10-21T00:00:00+07:00</updated><id>https://luanvotrongdev.github.io/blog/2026/10/21/hello-world</id><content type="html" xml:base="https://luanvotrongdev.github.io/blog/2026/10/21/hello-world/"><![CDATA[<p>Hello, world! I guess!?</p>
 
 <h2 id="the-spark">The spark</h2>
 

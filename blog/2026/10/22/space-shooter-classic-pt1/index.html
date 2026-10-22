@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.9.1 -->
+<title>Space Shooter Classic Part 1 | Luan Vo Trong</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Space Shooter Classic Part 1" />
+<meta name="author" content="Luan Vo Trong" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Using AI to make this retro game." />
+<meta name="twitter:description" property="og:description" content="Using AI to make this retro game." />
+<link rel="canonical" href="https://luanvotrongdev.github.io/blog/2026/10/22/space-shooter-classic-pt1/" />
+<meta property="og:url" content="https://luanvotrongdev.github.io/blog/2026/10/22/space-shooter-classic-pt1/" />
+<meta property="og:site_name" content="Luan Vo Trong" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-10-22T00:00:00+07:00" />
+<meta property="article:modified_time" content="2026-10-22T00:00:00+07:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Space Shooter Classic Part 1" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Luan Vo Trong"},"dateModified":"2026-10-22T00:00:00+07:00","datePublished":"2026-10-22T00:00:00+07:00","description":"Using AI to make this retro game.","headline":"Space Shooter Classic Part 1","mainEntityOfPage":{"@type":"WebPage","@id":"https://luanvotrongdev.github.io/blog/2026/10/22/space-shooter-classic-pt1/"},"url":"https://luanvotrongdev.github.io/blog/2026/10/22/space-shooter-classic-pt1/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link type="application/atom+xml" rel="alternate" href="https://luanvotrongdev.github.io/blog/feed.xml" title="Luan Vo Trong" />
+  <link rel="stylesheet" href="/assets/css/style.css?v=1792673659">
+</head>
+<body class="">
+  <header class="site-header">
+  <nav class="container">
+    <a class="brand" href="/">Luan Vo Trong</a>
+    <span class="links">
+      <a href="/resume/">Resume</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/photography/">Photography</a>
+    </span>
+  </nav>
+</header>
+
+  <main class="container">
+    <article class="post">
+  <header class="post-header">
+    <h1>Space Shooter Classic Part 1</h1>
+    <p class="meta">
+      <time datetime="2026-10-22T00:00:00+07:00">October 22, 2026</time>
+      
+    </p>
+  </header>
+  <p>“Everything is a tradeoff.”</p>
+
+<h2 id="childhood">Childhood?</h2>
+
+<p>I first played Space Shooter when I was, I don’t know, 7 years old maybe? Where I lived, people called it “Bắn ruồi”, which means “Fly Shooter”.</p>
+
+<p>I played it with my uncle. I think he was the one who introduced me to video games. He took me to the little game shop near my grandma’s house: a tiny shop full of kids and teenagers in shorts and tank tops, squatting on plastic chairs while having the best adventures of their lives!!</p>
+
+<p>Well, anyway, I hated that game. I don’t know why. It always made me feel pressured when the “flies” kept getting closer and the SFX kept getting louder and more annoying.</p>
+
+<h2 id="now">Now</h2>
+
+<p>While thinking about what my first AI-assisted game should be, I thought maybe “Bắn ruồi”.</p>
+
+<p>Because I hated it, I feel like I know why, and how to fix it.</p>
+
+<ol>
+  <li>
+    <p>All the fly formations feel too monotonous, like a metronome.</p>
+
+    <p>Solution: I will spawn the flies randomly, in random formations.</p>
+  </li>
+  <li>
+    <p>There were no power-ups or upgrades. It feels too skill-based, with no strategic side to it.</p>
+
+    <p>Solution: I like the idea that “everything is a tradeoff”. So when you pick up a power-up, you get more guns, but at the same time, moving gets clunkier and your hitbox gets bigger.</p>
+  </li>
+</ol>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>This is my first time using Claude.</p>
+
+<p>I started by establishing the coding conventions I wanted to test.</p>
+
+<p>Roughly:</p>
+
+<ul>
+  <li>
+    <p>DI: of course. It helps me with component injection and initialization. I used to pass object references around or use Unity’s SerializeField. That’s convenient at first, but it gets messier and harder to manage, especially when you have to take care of initialization order.</p>
+  </li>
+  <li>
+    <p>Composition over inheritance: my coding style is usually more verbose, more literal, which I think is easier to debug and clearer to read. But as the logic expands, methods and components are more likely to get bloated and become god classes. That’s why I want to try composition, which breaks an object’s behaviour into smaller chunks that I hope are more manageable.</p>
+  </li>
+  <li>
+    <p>Message system: breaking components into smaller chunks means a whole lot of references between them, which gets messy and defeats the purpose. Hence a message system.</p>
+  </li>
+</ul>
+
+<h2 id="well-fuck">Well, Fuck!</h2>
+
+<p>“Everything is a tradeoff” sounded perfect at first. But after playtesting, it felt very clunky and ugly, so I removed it (FOR NOW).</p>
+
+<p>Then there was a small bug.</p>
+
+<p>Bloody hell! This type of bug would be a piece of cake if I had written the code myself, or read the code after each AI coding iteration.</p>
+
+<p>Now I have around 30 components with about 20 lines of code each, and I don’t know who’s calling whom. (Skill issue…)</p>
+
+<p>I fixed it, but I’m still not satisfied.</p>
+
+<p>There will be next part.</p>
+
+<p>Lessons learned:</p>
+
+<ul>
+  <li>
+    <p>AI-assisted, not AI coding.</p>
+  </li>
+  <li>
+    <p>Read the generated code.</p>
+  </li>
+  <li>
+    <p>And most important: everything is a tradeoff.</p>
+  </li>
+</ul>
+
+  <p class="back"><a href="/blog/">← All posts</a></p>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    © 2026 Luan Vo Trong
+     · <a href="https://github.com/luanvotrongdev">GitHub</a>
+    
+    · <a href="/blog/feed.xml">RSS</a>
+  </div>
+</footer>
+
+</body>
+</html>
