@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://luanvotrongdev.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://luanvotrongdev.github.io/" rel="alternate" type="text/html" /><updated>2026-10-22T20:24:30+07:00</updated><id>https://luanvotrongdev.github.io/blog/feed.xml</id><title type="html">Luan Vo Trong</title><subtitle>Software engineer. Resume and blog.</subtitle><author><name>Luan Vo Trong</name></author><entry><title type="html">Space Shooter Classic Part 1</title><link href="https://luanvotrongdev.github.io/blog/2026/10/22/space-shooter-classic-pt1/" rel="alternate" type="text/html" title="Space Shooter Classic Part 1" /><published>2026-10-22T00:00:00+07:00</published><updated>2026-10-22T00:00:00+07:00</updated><id>https://luanvotrongdev.github.io/blog/2026/10/22/space-shooter-classic-pt1</id><content type="html" xml:base="https://luanvotrongdev.github.io/blog/2026/10/22/space-shooter-classic-pt1/"><![CDATA[<p>“Everything is a tradeoff.”</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://luanvotrongdev.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://luanvotrongdev.github.io/" rel="alternate" type="text/html" /><updated>2026-10-23T08:31:29+07:00</updated><id>https://luanvotrongdev.github.io/blog/feed.xml</id><title type="html">Luan Vo Trong</title><subtitle>Software engineer. Resume and blog.</subtitle><author><name>Luan Vo Trong</name></author><entry><title type="html">Galaxian Classic Part 1</title><link href="https://luanvotrongdev.github.io/blog/2026/10/22/space-shooter-classic-pt1/" rel="alternate" type="text/html" title="Galaxian Classic Part 1" /><published>2026-10-22T00:00:00+07:00</published><updated>2026-10-22T00:00:00+07:00</updated><id>https://luanvotrongdev.github.io/blog/2026/10/22/space-shooter-classic-pt1</id><content type="html" xml:base="https://luanvotrongdev.github.io/blog/2026/10/22/space-shooter-classic-pt1/"><![CDATA[<p>“Everything is a tradeoff.”</p>
 
-<p><strong>Play it:</strong> <a href="https://luanvotrongdev.itch.io/space-invader-part-1">Space Invader Part 1 on itch.io</a></p>
+<p><strong>Play it:</strong> <a href="https://luanvotrongdev.itch.io/space-invader-part-1">Galaxian Part 1 on itch.io</a></p>
 
 <h2 id="childhood">Childhood?</h2>
 
-<p>I first played Space Shooter when I was, I don’t know, 7 years old maybe? Where I lived, people called it “Bắn ruồi”, which means “Fly Shooter”.</p>
+<p>I first played Galaxian when I was, I don’t know, 7 years old maybe? Where I lived, people called it “Bắn ruồi”, which means “Fly Shooter”.</p>
 
 <p>I played it with my uncle. I think he was the one who introduced me to video games. He took me to the little game shop near my grandma’s house: a tiny shop full of kids and teenagers in shorts and tank tops, squatting on plastic chairs while having the best adventures of their lives!!</p>
 
@@ -66,6 +66,9 @@
 <p>Lessons learned:</p>
 
 <ul>
+  <li>
+    <p>Use AI for quick protoype and playtest your idea, but you still have to reshape, work on the code if the idea is deem usable.</p>
+  </li>
   <li>
     <p>AI-assisted, not AI coding.</p>
   </li>
