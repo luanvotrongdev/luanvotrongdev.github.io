@@ -61,6 +61,10 @@ main { padding-block: 2rem 3rem; }
 .button { display: inline-block; padding: 0.45rem 1rem; border: 1px solid var(--accent); border-radius: 6px; color: var(--accent); font-weight: 600; font-size: 0.95em; text-decoration: none; }
 .button:hover { background: var(--accent); color: var(--bg); }
 
+/* Bouldering map: the 3D app needs more room than the text column */
+.bouldering main.container { max-width: 80rem; }
+.app-frame { display: block; width: 100%; height: calc(100vh - 14rem); min-height: 32rem; border: 1px solid var(--border); border-radius: 6px; background: var(--code-bg); }
+
 /* Photography: album cards */
 .album-grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 1.5rem; }
 .album-card a { color: inherit; text-decoration: none; display: block; }
