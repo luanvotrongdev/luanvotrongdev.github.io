@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Boulder Map Editor</title>
+<title>ボルダーマップエディタ</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+JP:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,33 +15,33 @@
   </div>
   <aside class="panel">
     <div>
-      <h1>Boulder Map Editor</h1>
-      <div class="sub">Rough 3D gym · walls and problem markers</div>
+      <h1>ボルダーマップエディタ</h1>
+      <div class="sub">簡易3Dジム · 壁と課題マーカー</div>
     </div>
 
-    <label class="field"><span>Gym name</span><input id="gymName" type="text" maxlength="60" placeholder="My gym"></label>
+    <label class="field"><span>ジム名</span><input id="gymName" type="text" maxlength="60" placeholder="マイジム"></label>
 
-    <div class="seg" role="group" aria-label="Mode">
-      <button id="modeView" data-mode="view">閲覧 View</button>
-      <button id="modeEdit" data-mode="edit">課題 Problems</button>
-      <button id="modeWalls" data-mode="walls">壁 Walls</button>
+    <div class="seg" role="group" aria-label="モード">
+      <button id="modeView" data-mode="view">閲覧</button>
+      <button id="modeEdit" data-mode="edit">課題</button>
+      <button id="modeWalls" data-mode="walls">壁</button>
     </div>
 
     <!-- Problems mode -->
     <section id="editor">
       <div class="card" id="editCard">
-        <div class="card-head"><span id="editTitle">New marker</span><span class="num" id="editMeta"></span></div>
+        <div class="card-head"><span id="editTitle">新規マーカー</span><span class="num" id="editMeta"></span></div>
         <div>
-          <div class="label">Tape color</div>
+          <div class="label">テープの色</div>
           <div class="swatches" id="swatches"></div>
         </div>
         <div class="row">
-          <label class="field"><span>Grade</span><select id="grade"></select></label>
-          <label class="field"><span>No.</span><input id="no" type="number" min="1" step="1"></label>
+          <label class="field"><span>グレード</span><select id="grade"></select></label>
+          <label class="field"><span>番号</span><input id="no" type="number" min="1" step="1"></label>
         </div>
         <div class="row" id="selActions" hidden>
-          <button class="btn" id="deselect">Done</button>
-          <button class="btn danger" id="del">Delete</button>
+          <button class="btn" id="deselect">完了</button>
+          <button class="btn danger" id="del">削除</button>
         </div>
       </div>
     </section>
@@ -53,13 +53,13 @@
 
     <!-- Walls mode -->
     <section id="wallSec" hidden>
-      <div class="label">Walls</div>
+      <div class="label">壁</div>
       <div class="chips" id="wallChips"></div>
       <div class="card editing" id="wallForm" hidden style="margin-top:12px">
-        <div class="card-head"><span>Wall</span><span class="meta num" id="wallMeta"></span></div>
+        <div class="card-head"><span>壁</span><span class="meta num" id="wallMeta"></span></div>
         <div class="row">
-          <label class="field"><span>Name</span><input id="wName" type="text" maxlength="40"></label>
-          <label class="field"><span>Color</span><input id="wTint" type="color"></label>
+          <label class="field"><span>名前</span><input id="wName" type="text" maxlength="40"></label>
+          <label class="field"><span>色</span><input id="wTint" type="color"></label>
         </div>
         <div class="row">
           <label class="field"><span>X (m)</span><input id="wX" type="number" step="0.1"></label>
@@ -67,75 +67,75 @@
           <label class="field"><span>Z (m)</span><input id="wZ" type="number" step="0.1"></label>
         </div>
         <div class="row">
-          <label class="field"><span>Tilt (°)</span><input id="wTilt" type="number" step="5" min="-45" max="90"></label>
-          <label class="field"><span>Facing (°)</span><input id="wYaw" type="number" step="15"></label>
+          <label class="field"><span>傾斜 (°)</span><input id="wTilt" type="number" step="5" min="-45" max="90"></label>
+          <label class="field"><span>向き (°)</span><input id="wYaw" type="number" step="15"></label>
         </div>
         <div class="row">
-          <label class="field"><span>Width (m)</span><input id="wWidth" type="number" step="0.1" min="0.5" max="20"></label>
-          <label class="field"><span>Height (m)</span><input id="wHeight" type="number" step="0.1" min="0.3" max="12"></label>
+          <label class="field"><span>幅 (m)</span><input id="wWidth" type="number" step="0.1" min="0.5" max="20"></label>
+          <label class="field"><span>高さ (m)</span><input id="wHeight" type="number" step="0.1" min="0.3" max="12"></label>
         </div>
-        <div class="label">Add wall at this wall's edge</div>
+        <div class="label">この壁の端に壁を追加</div>
         <div class="row">
-          <button class="btn" id="addLeft">Left</button>
-          <button class="btn" id="stackWall">Top</button>
-          <button class="btn" id="addRight">Right</button>
+          <button class="btn" id="addLeft">左</button>
+          <button class="btn" id="stackWall">上</button>
+          <button class="btn" id="addRight">右</button>
         </div>
         <div class="row">
-          <button class="btn danger" id="delWall">Delete wall</button>
+          <button class="btn danger" id="delWall">壁を削除</button>
         </div>
       </div>
-      <button class="btn" id="addWall" style="margin-top:12px">Add wall</button>
+      <button class="btn" id="addWall" style="margin-top:12px">壁を追加</button>
     </section>
 
     <section id="filterSec">
-      <div class="label">Grade filter</div>
+      <div class="label">グレードで絞り込み</div>
       <div class="row">
-        <label class="field"><span>Easiest</span><select id="fmin"></select></label>
-        <label class="field"><span>Hardest</span><select id="fmax"></select></label>
+        <label class="field"><span>最も易しい</span><select id="fmin"></select></label>
+        <label class="field"><span>最も難しい</span><select id="fmax"></select></label>
       </div>
     </section>
 
     <section id="listSec">
-      <div class="label" id="listLabel">Problems</div>
+      <div class="label" id="listLabel">課題</div>
       <div class="list" id="list"></div>
     </section>
 
     <div class="foot">
-      <button class="btn" id="newBtn">New gym</button>
-      <button class="btn" id="undo">Undo</button>
-      <button class="btn" id="importBtn">Open file</button>
-      <button class="btn primary" id="exportBtn">Save file</button>
+      <button class="btn" id="newBtn">新規ジム</button>
+      <button class="btn" id="undo">元に戻す</button>
+      <button class="btn" id="importBtn">ファイルを開く</button>
+      <button class="btn primary" id="exportBtn">ファイルに保存</button>
     </div>
   </aside>
 </div>
 
 <div class="modal" id="modal" hidden>
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="card-head"><span id="modalTitle">Export JSON</span><button class="btn" id="closeModal">Close</button></div>
+    <div class="card-head"><span id="modalTitle">ジムを保存</span><button class="btn" id="closeModal">閉じる</button></div>
     <div class="row" id="fileRow">
-      <button class="btn primary" id="downloadJson">Download .json</button>
-      <label class="btn filepick" id="pickLabel">Choose .json file<input id="pickFile" type="file" accept=".json,application/json"></label>
+      <button class="btn primary" id="downloadJson">.jsonをダウンロード</button>
+      <label class="btn filepick" id="pickLabel">.jsonファイルを選択<input id="pickFile" type="file" accept=".json,application/json"></label>
     </div>
-    <div class="label" id="pasteLabel" style="margin:4px 0 0">Or copy / paste the JSON</div>
+    <div class="label" id="pasteLabel" style="margin:4px 0 0">またはJSONをコピー／貼り付け</div>
     <textarea id="json" spellcheck="false"></textarea>
     <div class="msg" id="modalMsg" role="status"></div>
     <div class="row">
-      <button class="btn" id="copyJson">Copy</button>
-      <button class="btn primary" id="loadJson">Load pasted JSON</button>
+      <button class="btn" id="copyJson">コピー</button>
+      <button class="btn primary" id="loadJson">貼り付けたJSONを読み込む</button>
     </div>
   </div>
 </div>
 
 <div class="modal" id="newModal" hidden>
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="newTitle">
-    <div class="card-head"><span id="newTitle">Start a new gym</span><button class="btn" id="closeNew">Cancel</button></div>
-    <p class="msg" style="margin:0">This replaces the gym in this browser. Save it to a file first if you want to keep it.</p>
-    <label class="field"><span>Gym name</span><input id="newName" type="text" maxlength="60" placeholder="My gym"></label>
+    <div class="card-head"><span id="newTitle">新しいジムを作成</span><button class="btn" id="closeNew">キャンセル</button></div>
+    <p class="msg" style="margin:0">このブラウザ内のジムが置き換えられます。残したい場合は先にファイルに保存してください。</p>
+    <label class="field"><span>ジム名</span><input id="newName" type="text" maxlength="60" placeholder="マイジム"></label>
     <div class="row">
-      <label class="field"><span>Gym width (m)</span><input id="newWidth" type="number" min="4" max="100" step="0.5" placeholder="Width"></label>
-      <label class="field"><span>Gym depth (m)</span><input id="newDepth" type="number" min="4" max="100" step="0.5" placeholder="Depth"></label>
+      <label class="field"><span>ジムの幅 (m)</span><input id="newWidth" type="number" min="4" max="100" step="0.5" placeholder="幅"></label>
+      <label class="field"><span>ジムの奥行き (m)</span><input id="newDepth" type="number" min="4" max="100" step="0.5" placeholder="奥行き"></label>
     </div>
-    <button class="btn primary" id="newBlank">Start blank</button>
+    <button class="btn primary" id="newBlank">空のジムで開始</button>
   </div>
 </div>
 

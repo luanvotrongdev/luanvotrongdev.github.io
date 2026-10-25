@@ -20,7 +20,7 @@ export class WallPanel {
 
     // Live field edits
     const field = (id, apply) => $(id).addEventListener('input', e => { this.beginEdit(); apply(selectedWall(), e.target); this.changed(false); });
-    field('wName',   (w, el) => { w.name = el.value || 'Wall'; });
+    field('wName',   (w, el) => { w.name = el.value || '壁'; });
     field('wX',      (w, el) => { w.pos[0] = readNum(el, LIMITS.wallPos, w.pos[0]); });
     field('wY',      (w, el) => { w.pos[1] = readNum(el, LIMITS.wallY, w.pos[1]); });
     field('wZ',      (w, el) => { w.pos[2] = readNum(el, LIMITS.wallPos, w.pos[2]); });
@@ -54,8 +54,8 @@ export class WallPanel {
 
   hint() {
     return state.wallSel
-      ? 'Edit the selected wall in the panel, add one at its edge, or tap another wall'
-      : 'Tap a wall to select it, or add a new one';
+      ? 'パネルで選択中の壁を編集、端に壁を追加、または別の壁をタップ'
+      : '壁をタップして選択、または新しい壁を追加';
   }
 
   // ---- Structural edits
@@ -64,7 +64,7 @@ export class WallPanel {
     const t = this.app.scene.lookTarget();
     const w = {
       id: 'wall-' + uid(),
-      name: `Wall ${state.walls.length + 1}`,
+      name: `壁 ${state.walls.length + 1}`,
       pos: [r3(t.x), 0, r3(t.z)], yaw: 0, tilt: 10, width: 3, height: 4,
       tint: WALL_TINTS[state.walls.length % WALL_TINTS.length]
     };
@@ -134,7 +134,7 @@ export class WallPanel {
     const a = THREE.MathUtils.degToRad(w.tilt);
     const top = w.pos[1] + w.height * Math.cos(a), reach = w.height * Math.sin(a);
     const n = problemsOnWall(w.id).length;
-    return `${kindOf(w.tilt)} · top ${top.toFixed(1)} m · reach ${reach.toFixed(1)} m · ${n} problem${n === 1 ? '' : 's'}`;
+    return `${kindOf(w.tilt)} · 上端 ${top.toFixed(1)} m · 張り出し ${reach.toFixed(1)} m · 課題 ${n}件`;
   }
 
   // ---- Rendering
@@ -170,6 +170,6 @@ export class WallPanel {
     const dw = $('delWall');
     const n = problemsOnWall(w.id).length;
     dw.classList.toggle('armed', this.delArmed);
-    dw.textContent = this.delArmed ? (n ? `Delete wall + ${n} problem${n === 1 ? '' : 's'}?` : 'Tap again to delete') : 'Delete wall';
+    dw.textContent = this.delArmed ? (n ? `壁と課題${n}件を削除しますか？` : 'もう一度タップで削除') : '壁を削除';
   }
 }

@@ -35,7 +35,7 @@ export class FileDialogs {
     $('gymName').addEventListener('input', e => {
       state.gymName = e.target.value.trim() || UNNAMED_GYM;
       save();
-      document.title = `${state.gymName} · Boulder Map Editor`;
+      document.title = `${state.gymName} · ボルダーマップエディタ`;
     });
   }
 
@@ -72,7 +72,7 @@ export class FileDialogs {
     a.href = url; a.download = this.fileName();
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-    $('modalMsg').textContent = `Saved as ${a.download}.`;
+    $('modalMsg').textContent = `${a.download} として保存しました。`;
   }
 
   // ---- Open
@@ -80,7 +80,7 @@ export class FileDialogs {
     try {
       const d = JSON.parse(text);
       if (!d || (!Array.isArray(d) && !Array.isArray(d.problems) && !Array.isArray(d.walls))) {
-        throw new Error('this file has no "walls" or "problems". Choose a file saved from Boulder Map Editor.');
+        throw new Error('このファイルには「walls」も「problems」もありません。ボルダーマップエディタで保存したファイルを選んでください。');
       }
       snapshot();
       if (!Array.isArray(d) && !d.gym) state.gymName = UNNAMED_GYM;
@@ -88,10 +88,10 @@ export class FileDialogs {
       if (!state.walls.length) state.mode = 'walls';
       save();
       this.app.afterDataReplaced();
-      $('modalMsg').textContent = `Opened “${state.gymName}”: ${state.walls.length} walls, ${r.got} problem${r.got === 1 ? '' : 's'}` +
-        (r.got < r.total ? ` (skipped ${r.total - r.got} on unknown walls).` : '.');
+      $('modalMsg').textContent = `「${state.gymName}」を開きました: 壁 ${state.walls.length}、課題 ${r.got}` +
+        (r.got < r.total ? `（不明な壁の課題 ${r.total - r.got} 件をスキップ）` : '');
     } catch (err) {
-      $('modalMsg').textContent = `Could not open it: ${err.message}`;
+      $('modalMsg').textContent = `開けませんでした: ${err.message}`;
     }
   }
 
@@ -100,7 +100,7 @@ export class FileDialogs {
     if (!f) return;
     const reader = new FileReader();
     reader.onload = () => this.importText(String(reader.result));
-    reader.onerror = () => { $('modalMsg').textContent = 'Could not read that file. Try choosing it again.'; };
+    reader.onerror = () => { $('modalMsg').textContent = 'ファイルを読み込めませんでした。もう一度選択してください。'; };
     reader.readAsText(f);
     e.target.value = ''; // allow choosing the same file again
   }
@@ -109,7 +109,7 @@ export class FileDialogs {
   openModal(mode) {
     const exp = mode === 'export';
     $('modal').hidden = false;
-    $('modalTitle').textContent = exp ? 'Save gym' : 'Open gym';
+    $('modalTitle').textContent = exp ? 'ジムを保存' : 'ジムを開く';
     $('json').value = exp ? this.app.serializer.export() : '';
     $('json').readOnly = exp;
     $('downloadJson').hidden = !exp;
@@ -117,15 +117,15 @@ export class FileDialogs {
     $('loadJson').hidden = exp;
     $('copyJson').hidden = !exp;
     $('modalMsg').textContent = exp
-      ? 'Keep this file to reopen or share your gym later.'
-      : 'Opening a gym replaces the one in this browser. Undo brings it back.';
+      ? 'このファイルを保管しておくと、後でジムを開き直したり共有したりできます。'
+      : 'ジムを開くと、このブラウザ内のジムが置き換えられます。「元に戻す」で復元できます。';
     (exp ? $('downloadJson') : $('pickFile')).focus();
   }
 
   copy() {
     const ta = $('json');
-    const fallback = () => { ta.focus(); ta.select(); $('modalMsg').textContent = 'Selected. Press Ctrl/Cmd+C to copy.'; };
-    try { navigator.clipboard.writeText(ta.value).then(() => { $('modalMsg').textContent = 'Copied to clipboard.'; }, fallback); }
+    const fallback = () => { ta.focus(); ta.select(); $('modalMsg').textContent = '選択しました。Ctrl/Cmd+C でコピーしてください。'; };
+    try { navigator.clipboard.writeText(ta.value).then(() => { $('modalMsg').textContent = 'クリップボードにコピーしました。'; }, fallback); }
     catch (e) { fallback(); }
   }
 }

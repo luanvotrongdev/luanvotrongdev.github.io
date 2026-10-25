@@ -13,7 +13,7 @@ export class ShellUI {
   render() {
     const m = state.mode;
     if (document.activeElement !== $('gymName')) $('gymName').value = state.gymName;
-    document.title = `${state.gymName} · Boulder Map Editor`;
+    document.title = `${state.gymName} · ボルダーマップエディタ`;
     this.modeButtons.forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === m));
     $('editor').hidden = m !== 'edit';
     $('wallSec').hidden = m !== 'walls';

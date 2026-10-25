@@ -14,7 +14,7 @@ export class CameraHud {
   }
 
   render() {
-    $('hud').innerHTML = `<button class="pill" data-home="1">Overview</button>` +
+    $('hud').innerHTML = `<button class="pill" data-home="1">全体</button>` +
       state.walls.map(w => `<button class="pill" data-wall="${w.id}">${esc(shortName(w.name))}</button>`).join('');
   }
 }

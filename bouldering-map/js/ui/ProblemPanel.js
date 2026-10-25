@@ -83,13 +83,13 @@ export class ProblemPanel {
   }
 
   hint() {
-    if (!state.walls.length) return 'This gym has no walls yet · add one in Walls mode';
+    if (!state.walls.length) return 'このジムにはまだ壁がありません · 壁モードで追加してください';
     if (state.mode === 'edit') {
       return selectedProblem()
-        ? 'Change color, grade or number in the panel · tap empty wall to finish'
-        : 'Tap a wall to place · drag to orbit · tap a marker to edit';
+        ? 'パネルで色・グレード・番号を変更 · 何もない壁をタップで完了'
+        : '壁をタップして配置 · ドラッグで回転 · マーカーをタップで編集';
     }
-    return 'Drag to orbit · pinch or scroll to zoom · tap a marker for details';
+    return 'ドラッグで回転 · ピンチまたはスクロールでズーム · マーカーをタップで詳細';
   }
 
   render() {
@@ -101,7 +101,7 @@ export class ProblemPanel {
     $('grade').value = src.grade;
     $('no').value = src.no;
     $('editCard').classList.toggle('editing', !!sel);
-    $('editTitle').textContent = sel ? `Editing #${sel.no}` : 'New marker';
+    $('editTitle').textContent = sel ? `#${sel.no} を編集` : '新規マーカー';
     $('editMeta').textContent = sel ? shortName(wallName(sel.wall)) : `${tape(src.color).ja} · ${gradeLabel(src.grade)}`;
     $('selActions').hidden = !sel;
 
@@ -117,7 +117,7 @@ export class ProblemPanel {
     $('fmin').value = state.filter.min;
     $('fmax').value = state.filter.max;
     const shown = state.problems.filter(inFilter).length;
-    $('listLabel').textContent = `Problems · ${shown} of ${state.problems.length} shown`;
+    $('listLabel').textContent = `課題 · ${state.problems.length}件中${shown}件を表示`;
     const sorted = [...state.problems].sort((a, b) => a.no - b.no);
     $('list').innerHTML = sorted.length ? sorted.map(p => `
       <button class="item${inFilter(p) ? '' : ' dim'}" data-id="${p.id}" aria-current="${p.id === state.selectedId}">
@@ -125,6 +125,6 @@ export class ProblemPanel {
         <span class="num">#${p.no}</span>
         <span class="wallname">${esc(wallName(p.wall))}</span>
         <span class="num">${gradeLabel(p.grade)}</span>
-      </button>`).join('') : `<div class="empty">No problems yet. Switch to Problems and tap a wall.</div>`;
+      </button>`).join('') : `<div class="empty">課題はまだありません。課題モードに切り替えて壁をタップしてください。</div>`;
   }
 }

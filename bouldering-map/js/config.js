@@ -6,8 +6,8 @@
 // =====================================================================
 
 // Name used for the built-in sample gym and for new gyms left unnamed
-export const SAMPLE_GYM_NAME = 'Sample gym';
-export const UNNAMED_GYM = 'My gym';
+export const SAMPLE_GYM_NAME = 'サンプルジム';
+export const UNNAMED_GYM = 'マイジム';
 export const UNSETTED_WIDTH = 15;
 export const UNSETTED_DEPTH = 10;
 
@@ -75,17 +75,17 @@ export const LIMITS = {
 //   tint:    '#rrggbb'
 // }
 export const DEFAULT_WALLS = [
-  { id: 'slab',      name: 'Slab スラブ',          pos: [-4.2, 0, -4.5],    yaw: 0,   tilt: -12, width: 4,   height: 4.2, tint: '#e8d2ad' },
-  { id: 'vertical',  name: 'Vertical 垂壁',        pos: [0, 0, -4.5],       yaw: 0,   tilt: 0,   width: 4,   height: 4.3, tint: '#dcc6a0' },
-  { id: 'over30',    name: 'Overhang 30° 前傾壁',  pos: [4.4, 0, -4.5],     yaw: 0,   tilt: 0,   width: 4.6, height: 0.6, tint: '#d4b98e' },
-  { id: 'over30-2',  name: 'Overhang 30° upper',   pos: [4.4, 0.6, -4.5],   yaw: 0,   tilt: 30,  width: 4.6, height: 4.2, tint: '#d4b98e' },
-  { id: 'cave',      name: 'Cave ルーフ',          pos: [-7, 0, 0],         yaw: 90,  tilt: 0,   width: 5,   height: 1.0, tint: '#c9ae84' },
-  { id: 'cave-2',    name: 'Cave 45°',             pos: [-7, 1, 0],         yaw: 90,  tilt: 45,  width: 5,   height: 2.0, tint: '#c9ae84' },
-  { id: 'cave-3',    name: 'Cave roof',            pos: [-5.586, 2.414, 0], yaw: 90,  tilt: 90,  width: 5,   height: 1.8, tint: '#c9ae84' },
-  { id: 'kick15',    name: 'Kicker + 15° 緩傾斜',   pos: [7, 0, -0.4],       yaw: -90, tilt: 55,  width: 6,   height: 0.45, tint: '#e2cba3' },
-  { id: 'kick15-2',  name: 'Kicker 15°',           pos: [6.631, 0.258, -0.4], yaw: -90, tilt: 15, width: 6,   height: 3.8, tint: '#e2cba3' }
+  { id: 'slab',      name: 'スラブ',          pos: [-4.2, 0, -4.5],    yaw: 0,   tilt: -12, width: 4,   height: 4.2, tint: '#e8d2ad' },
+  { id: 'vertical',  name: '垂壁',        pos: [0, 0, -4.5],       yaw: 0,   tilt: 0,   width: 4,   height: 4.3, tint: '#dcc6a0' },
+  { id: 'over30',    name: '前傾壁 30°',  pos: [4.4, 0, -4.5],     yaw: 0,   tilt: 0,   width: 4.6, height: 0.6, tint: '#d4b98e' },
+  { id: 'over30-2',  name: '前傾壁 30° 上部',   pos: [4.4, 0.6, -4.5],   yaw: 0,   tilt: 30,  width: 4.6, height: 4.2, tint: '#d4b98e' },
+  { id: 'cave',      name: 'ケイブ ルーフ',          pos: [-7, 0, 0],         yaw: 90,  tilt: 0,   width: 5,   height: 1.0, tint: '#c9ae84' },
+  { id: 'cave-2',    name: 'ケイブ 45°',             pos: [-7, 1, 0],         yaw: 90,  tilt: 45,  width: 5,   height: 2.0, tint: '#c9ae84' },
+  { id: 'cave-3',    name: 'ケイブ 屋根',            pos: [-5.586, 2.414, 0], yaw: 90,  tilt: 90,  width: 5,   height: 1.8, tint: '#c9ae84' },
+  { id: 'kick15',    name: 'キッカー 緩傾斜',   pos: [7, 0, -0.4],       yaw: -90, tilt: 55,  width: 6,   height: 0.45, tint: '#e2cba3' },
+  { id: 'kick15-2',  name: 'キッカー 15°',           pos: [6.631, 0.258, -0.4], yaw: -90, tilt: 15, width: 6,   height: 3.8, tint: '#e2cba3' }
 ];
-export const kindOf = a => (a < -2 ? 'slab' : a <= 2 ? 'vertical' : a < 80 ? 'overhang' : 'roof');
+export const kindOf = a => (a < -2 ? 'スラブ' : a <= 2 ? '垂壁' : a < 80 ? 'オーバーハング' : 'ルーフ');
 
 // ---- Problem (課題) data structure — stored in wall-local coordinates
 // so markers follow their wall when it is moved or reshaped.
