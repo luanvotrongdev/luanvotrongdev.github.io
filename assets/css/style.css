@@ -62,7 +62,7 @@ main { padding-block: 2rem 3rem; }
 .button:hover { background: var(--accent); color: var(--bg); }
 
 /* Bouldering map: the 3D app needs more room than the text column */
-.bouldering main.container { max-width: 80rem; }
+.bouldering main.container, .app-page main.container { max-width: 80rem; }
 .app-frame { display: block; width: 100%; height: calc(100vh - 14rem); min-height: 32rem; border: 1px solid var(--border); border-radius: 6px; background: var(--code-bg); }
 
 /* Photography: album cards */
